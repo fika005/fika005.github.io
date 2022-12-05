@@ -1,24 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- <script>
+      function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.documentElement.scrollHeight + 'px';
+      }
+    </script> -->
+    <title>Karmo - Responsive Creative HTML Template</title>
+    <!-- META TAGS -->
     <meta charset="utf-8" />
-    <title>Final Project</title>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="assets/img/favicon.ico"
+    />
+    <meta name="author" content="Tanislav Robert" />
+    <meta
+      name="description"
+      content="KARMO is a creative and modern template for digital agencies"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/flexslider.css" />
+    <link rel="stylesheet" href="assets/css/animsition.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/owl.carousel.css" />
+    <link rel="stylesheet" href="assets/css/owl.theme.css" />
+
+    <!-- Fontawesome -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css"
+    />
   </head>
-  <body>
-    <h1>Mental Disorders Across the World</h1>
-    <h2>Firo Kaveh</h2>
-    <p style="font-size: 18px">
-      Each year millions of people all over the world battle with some sort of
-      mental health issues. However, people still have to face the stigma around
-      mental health problems and often suffer in silence without seeking
-      treatment for their condition. That is why mental health awareness is a
-      must to improve understanding different conditions and disorders and
-      provide better access to healthcare and accommodations for those who need
-      it. The goal of this project is to throw some light on major mental
-      disorders across the world.
-    </p>
+
+  <body class="animsition">
+    <script type="text/javascript">
+      function resizeIframe(obj){
+         obj.style.height = 0;
+         obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+      }
+    </script>
+    <!-- Border -->
+    <span class="frame-line top-frame visible-lg"></span>
+    <span class="frame-line right-frame visible-lg"></span>
+    <span class="frame-line bottom-frame visible-lg"></span>
+    <span class="frame-line left-frame visible-lg"></span>
+    <!-- HEADER  -->
+
+    <!-- HERO SECTION  -->
+    <div class="site-hero_2">
+      <div class="section-overlay"></div>
+      <div class="page-title">
+        <h2>Final Project</h2>
+      </div>
+    </div>
+
+    <section class="project_descr">
+      <div class="container mt-100">
+        <div class="row center">
+          <div class="col-md-8 col-md-offset-2 col-sm-12">
+            <div class="section-title">
+              <h2 class="mb-50">Mental Disorders Across the World</h2>
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-50">
+          <div class="col-md-9 wow fadeInUp">
+            <p style="font-size: 18px">
+              Each year millions of people all over the world battle with some
+              sort of mental health issues. However, people still have to face
+              the stigma around mental health problems and often suffer in
+              silence without seeking treatment for their condition. That is why
+              mental health awareness is a must to improve understanding
+              different conditions and disorders and provide better access to
+              healthcare and accommodations for those who need it. The goal of
+              this project is to throw some light on major mental disorders
+              across the world.
+            </p>
+          </div>
+        </div>
+
+        <div class="row mt-50">
+          <h3>Instructions:</h3>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
+
+    <div class="container">
+      <div class="flexslider">
+        <ul class="slides">
+          <li>
+            At first the following visualization is presented where each dot
+            represents the average of all mental health disorders percentages
+            for a specific year and country. Also the red dots show the average
+            of all datapoints for that year and the solid line connects all
+            these average points.<br /><br /><br /><img
+              src="screenshot.png"
+              width="600"
+              height="300"
+              class="center"
+            />
+          </li>
+          <li>
+            By clicking on a specific year, the box plot for the corresponding
+            year will appear. By clicking on the year again, the box plot
+            disappears.<br /><br /><br /><img
+              src="screenshot1.png"
+              width="600"
+              height="300"
+              class="center"
+            />
+          </li>
+          <li>
+            By hovering over a specific datapoint, the information about that
+            datapoint shows up.<br /><br /><br /><img
+              src="screenshot2.png"
+              width="200"
+              height="100"
+              class="center"
+            />
+          </li>
+          <li>
+            Clicking on a datapoint highlights that datapoint plus all other
+            points corresponding to that country over the years, and clicking on
+            the same point again undoes the highlight.<br /><br /><br /><img
+              src="screenshot3.png"
+              width="600"
+              height="300"
+              class="center"
+            />
+          </li>
+          <li>
+            Clicking on a datapoint from the first visualization updates the
+            second and the third visualization to show the data for the chosen
+            year and country.<br /><br /><br /><img
+              src="screenshot4.png"
+              width="600"
+              height="300"
+              class="center"
+            />
+          </li>
+          <li>
+            Hovering over a specific tile, you can see the correlation between 2
+            disorders. Also the highest correlation is annotated with a red
+            circle.<br /><br /><br /><img
+              src="screenshot5.png"
+              width="400"
+              height="300"
+              class="center"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr style="height:4px;border-width:0;color:rgb(0, 14, 62);background-color:gray"><br><br><br>
     <p align="center">
-      <iframe src="plots.html" height="2000" width="1600"></iframe>
+      <!-- <div class="row mt-50">
+				<h3>visualizations:</h3>
+			</div> -->
+      <iframe src="plots.html"  scrolling="no" width="1600" onload='resizeIframe(this)'></iframe>
     </p>
+
+    <!-- FACTS  -->
+    <div
+      id="facts"
+      class="facts mt-100 mbr-box mbr-section mbr-section--relative"
+    >
+      <div class="container">
+        <div class="row center">
+          <div class="col-md-8 col-md-offset-2">
+            <h2 class="mb-100">Fun facts about this data</h2>
+          </div>
+        </div>
+        <div class="row text-center">
+          
+          <div class="col-xs-12 col-lg-3 col-md-3">
+            <div class="count-item">
+              <i class="lnr lnr-camera"></i>
+              <div class="numscroller">0.71</div>
+              <div class="count-name-intro">
+                Is the Highest Correlation between Bipolar and Eating Disorders
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-3 col-md-3">
+            <div class="count-item">
+              <i class="lnr lnr-camera"></i>
+              <div class="numscroller">not Significant</div>
+              <div class="count-name-intro">
+                Increasing Trend for Oveall Average of Disorders over the Years
+              </div>
+            </div>
+          </div>
+		  <div class="col-xs-12 col-lg-3 col-md-3">
+            <div class="count-item">
+              <i class="lnr lnr-camera"></i>
+              <div class="numscroller">Myanmar</div>
+              <div class="count-name-intro">
+                Country with the Lowest Rate of Disorders
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-lg-3 col-md-3">
+            <div class="count-item">
+              <i class="lnr lnr-camera"></i>
+              <div class="numscroller">New Zealand</div>
+              <div class="count-name-intro">
+                Country with the Highest Rate of Disorders
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <svg
+        preserveAspectRatio="none"
+        viewBox="0 0 100 102"
+        height="100"
+        width="100%"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+        class="yellow"
+      >
+        <path d="M0 0 L50 100 L100 0 Z" fill="#ffeedb" stroke="#ffeedb"></path>
+      </svg>
+      <div class="container">
+        
+
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>
+                &copy; 2016 Karmo - All Rights Reserved
+                <a href="#">Tanislav Robert</a>
+              </p>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+      </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="assets/js/jquery-2.2.3.min.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/js/animated-headline.js"
+    ></script>
+    <script type="text/javascript" src="assets/js/menu.js"></script>
+    <script type="text/javascript" src="assets/js/modernizr.js"></script>
+    <script type="text/javascript" src="assets/js/isotope.pkgd.min.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/js/jquery.flexslider-min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/js/jquery.animsition.min.js"
+    ></script>
+    <script type="text/javascript" src="assets/js/init.js"></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <script type="text/javascript" src="assets/js/smooth-scroll.js"></script>
+    <script type="text/javascript" src="assets/js/numscroller.js"></script>
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/owl.carousel.min.js"></script>
+
+    <script type="text/javascript">
+      $(window).load(function () {
+        new WOW().init();
+
+        // initialise flexslider
+        $(".flexslider").flexslider({
+          animation: "fade",
+          directionNav: true,
+          controlNav: false,
+          keyboardNav: true,
+          slideToStart: 0,
+          animationLoop: true,
+          pauseOnHover: false,
+          slideshowSpeed: 4000,
+        });
+
+        smoothScroll.init();
+
+        // initialize isotope
+        var $container = $(".portfolio_container");
+        $container.isotope({
+          filter: "*",
+        });
+
+        $(".portfolio_filter a").click(function () {
+          $(".portfolio_filter .active").removeClass("active");
+          $(this).addClass("active");
+
+          var selector = $(this).attr("data-filter");
+          $container.isotope({
+            filter: selector,
+            animationOptions: {
+              duration: 500,
+              animationEngine: "jquery",
+            },
+          });
+          return false;
+        });
+      });
+    </script>
   </body>
 </html>

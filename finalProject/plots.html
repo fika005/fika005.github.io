@@ -1,6 +1,80 @@
 <!DOCTYPE html>
 <html>
+  <link
+    href="https://fonts.googleapis.com/css?family=Lato:300,900"
+    rel="stylesheet"
+    type="text/css"
+  />
+
   <style>
+
+    :root {
+      --line-chart-color: #000000;
+      --annotation-context-color: #00796b;
+      --annotation-above-color: #00bfa5;
+      --annotation-anomaly-color: #e8336d;
+    }
+
+    svg {
+      background-color: white;
+      font-family: "Lato";
+    }
+
+    .axis,
+    .axis text {
+      fill: var(--line-chart-color);
+    }
+
+    .axis line,
+    path {
+      stroke: var(--line-chart-color);
+    }
+
+    path {
+      fill: none;
+    }
+
+    .annotation path {
+      stroke: var(--annotation-context-color);
+    }
+
+    .annotation:not(.above):not(.anomaly) path {
+      stroke-dasharray: 1, 3;
+    }
+
+    .annotation text {
+      fill: var(--annotation-context-color);
+    }
+
+    .annotation.above path {
+      stroke: var(--annotation-above-color);
+    }
+
+    .annotation.above text {
+      fill: var(--annotation-above-color);
+    }
+
+    .annotation.anomaly path {
+      stroke: var(--annotation-anomaly-color);
+      stroke-width: 2px;
+    }
+
+    .annotation.anomaly text {
+      fill: var(--annotation-anomaly-color);
+    }
+
+    .annotation-note-bg {
+      fill: rgba(0, 0, 0, 0);
+    }
+
+    .annotation-note-title {
+      font-weight: bold;
+    }
+
+    text.title {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
     /* non-clickable axis */
     .axis {
       font: 14px sans-serif;
@@ -31,6 +105,7 @@
     <svg width="800" height="800" id="svg3"></svg>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://colorbrewer2.org/export/colorbrewer.js"></script>
+    <script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.js"
       integrity="sha512-5mCB0Kvv97yTzqo0174qxPjMisck/WlK51+mw/RV7UfYbtHI8LuLR82BzZuxHUKSfbh75u9cZHgUcqrZDaBJuA=="
@@ -471,7 +546,7 @@
           .attr("y", 20)
           .attr("class", "title")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text(
             "Average Percentage of Mental Disorders for All Countries and Years"
           );
@@ -482,8 +557,8 @@
           .append("text")
           .attr("text-anchor", "middle")
           .attr("transform", "rotate(-90)")
-          .style("font-size", "20px")
-          .text("Average Percenatge of Disorders (%)");
+          .style("font-size", "18px")
+          .text("Average Percentage of Disorders (%)");
         // for bar chart y axis title
         svg
           .append("g")
@@ -493,7 +568,7 @@
           )
           .append("text")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Year");
       });
       // for a specific country year disorder bar plot
@@ -540,7 +615,7 @@
           .attr("x", width1 / 2)
           .attr("y", 10)
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Percentage of disorders for " + country_year);
         //bar chart x axis title
         svg1
@@ -549,8 +624,8 @@
           .append("text")
           .attr("text-anchor", "middle")
           .attr("transform", "rotate(-90)")
-          .style("font-size", "20px")
-          .text("Percenatge of Disorders (%)");
+          .style("font-size", "18px")
+          .text("Percentage of Disorders (%)");
         //bar chart y axis title
         svg1
           .append("g")
@@ -560,7 +635,7 @@
           )
           .append("text")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Disorder");
       });
       // per country year depression age line plot
@@ -605,7 +680,7 @@
           .attr("y", 10)
           .attr("class", "title")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Percentage of depression in age groups for " + country_year);
         //x axis title
         svg2
@@ -614,8 +689,8 @@
           .append("text")
           .attr("text-anchor", "middle")
           .attr("transform", "rotate(-90)")
-          .style("font-size", "20px")
-          .text("Percenatge of Depression (%)");
+          .style("font-size", "18px")
+          .text("Percentage of Depression (%)");
         //y axis title
         svg2
           .append("g")
@@ -625,7 +700,7 @@
           )
           .append("text")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Age Group");
       });
       //correlation plots
@@ -729,8 +804,66 @@
           .attr("y", 90)
           .attr("class", "title")
           .attr("text-anchor", "middle")
-          .style("font-size", "20px")
+          .style("font-size", "18px")
           .text("Correlation Between Disorders");
+
+          const labels = [
+          {
+            note: {
+              label: "Highest correlation",
+              lineType: "none",
+              orientation: "leftRight",
+              align: "middle",
+            },
+            className: "anomaly",
+            type: d3.annotationCalloutCircle,
+            subject: { radius: 35 },
+            data: { x: "Bipolar disorder", y: "Eating disorder" },
+            dx: 200,
+            dy: -200,
+          },
+        ];
+
+        const type = d3.annotationCustomType(d3.annotationXYThreshold, {
+          note: {
+            lineType: "none",
+            orientation: "top",
+            align: "middle",
+          },
+        });
+
+        const makeAnnotations = d3
+          .annotation()
+          .type(type)
+          //Gives you access to any data objects in the annotations array
+          .accessors({
+            "x": function (d) {
+              return x(d.x) + 33;
+            },
+            "y": function (d) {
+              return y(d.y) + 33;
+            },
+          })
+          .annotations(labels)
+          .textWrap(80)
+          .on("subjectover", function (annotation) {
+            annotation.type.a
+              .selectAll("g.annotation-connector, g.annotation-note")
+              .style("display", "block");
+          })
+          .on("subjectout", function (annotation) {
+            annotation.type.a
+              .selectAll("g.annotation-connector, g.annotation-note")
+              .style("display", "none");
+          });
+        svg3
+          .append("g")
+          .attr("class", "annotation-group")
+          .call(makeAnnotations);
+
+        svg3
+          .selectAll("g.annotation-connector, g.annotation-note")
+          .style("display", "none");
       });
     </script>
   </body>
