@@ -168,7 +168,7 @@
       const svg3 = d3
         .select("#svg3")
         .style("width", "100%")
-        .style("height", "auto")
+        // .style("height", "auto")
         .style("font", "1rem verdana");
       const width3 = +svg3.attr("width");
       const height3 = width3;
@@ -251,7 +251,7 @@
       var dist_in_year_country_data;
       var depression_data;
       // Read the data and compute summary statistics for each specie
-      d3.csv("./year-country-means.csv").then(function (data) {
+      d3.csv("data/year-country-means.csv").then(function (data) {
         // average plots
         // set the dimensions and margins of the graph
 
@@ -572,7 +572,7 @@
           .text("Year");
       });
       // for a specific country year disorder bar plot
-      d3.csv("./year-country-dist.csv").then(function (data) {
+      d3.csv("data/year-country-dist.csv").then(function (data) {
         indexed = {};
         //to get a mapping between country_year and its disorders percentage distribution
         data.forEach(function (d) {
@@ -639,7 +639,7 @@
           .text("Disorder");
       });
       // per country year depression age line plot
-      d3.csv("./depression-age-year-code.csv").then(function (data) {
+      d3.csv("data/depression-age-year-code.csv").then(function (data) {
         indexed = {};
         data.forEach(function (d) {
           value = Object.keys(d)
@@ -704,15 +704,13 @@
           .text("Age Group");
       });
       //correlation plots
-      d3.csv("./corrs.csv").then(function (data) {
+      d3.csv("data/corrs.csv").then(function (data) {
         // Data processing
         disorders = Array.from(new Set(data.map((item) => item.disorder))).sort(
           function (a, b) {
             return a - b;
           }
         );
-
-        // ADJ matrix
 
         margin = {
           top: width3 / 5,
